@@ -2,20 +2,22 @@
 //
 
 #include "Graph.h"
+#include <vector>
 
-using namespace std;
+
 
 int main()
 {
 	string fileName;
-	cout << "Provide file name to load graph" << endl;
+	cout << "Provide file name to load graph:" << endl;
 	cin >> fileName;
 
 	Graph *g = new Graph(fileName);
 	g ->printGraph();
 
 
-	system("PAUSE");
+	cin.ignore();
+	cin.get();
 	return 0;
 }
 

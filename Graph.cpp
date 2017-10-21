@@ -1,5 +1,8 @@
 #include "Graph.h"
+#include <vector>
 
+
+int numOfCities;
 Graph::Graph(string fileName)
 {
 	ifstream file;
@@ -22,7 +25,7 @@ Graph::Graph(string fileName)
 			file >> temp;
 		} while (strcmp(temp.c_str(), "EDGE_WEIGHT_SECTION"));
 
-
+		numOfCities = N;
 		this->matrix = new int*[N];
 		for (int i = 0; i < N; i++) {
 			matrix[i] = new int[N];
@@ -37,7 +40,7 @@ Graph::Graph(string fileName)
 		}
 	}
 	else {
-		cout << "Error occured during loading from file";
+		cout << "Error occured during loading from file\nFile was probably not found.";
 	}
 	//cout << "File loaded to matrix" << endl;
 }
@@ -61,6 +64,22 @@ void Graph::printGraph() {
 		cout << endl;
 	}
 }
+struct Node {
+	vector<pair<int, int>> path;
+
+	// stores the reduced matrix
+	int reducedMatrix[numOfCities][numOfCities];
+
+	// stores the lower bound
+	int cost;
+
+	//stores current city number
+	int vertex;
+
+	// stores number of cities visited so far
+	int level;
+};
+
 
 
 

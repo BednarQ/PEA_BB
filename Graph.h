@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <climits>
 #include <Windows.h>
+#include <vector>
 
 using namespace std;
 
@@ -19,11 +20,12 @@ class Graph
 private:
 	int N;
 	int **matrix;
-
+	
 public:
 	Graph(string fileName);
 	~Graph();
 	void printGraph();
+
 
 };
 
